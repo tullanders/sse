@@ -1,0 +1,17 @@
+<html>
+<head>
+    <title>Home</title>
+</head>
+<body>
+    <h1>Home</h1>
+    <p>Home page content goes here.</p>
+    <script>
+        // create a sse client that console logs the message
+        var sse = new EventSource('/events/topic2');
+        sse.onmessage = function(e) {
+            console.log(e.data);
+        };
+
+    </script>
+</body>
+</html>
