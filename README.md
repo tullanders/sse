@@ -23,7 +23,7 @@ app.post('/sendevent/:topic', sse.externalSendEvent);
 
 ## Usage example (client)
 ```
-var sse = new EventSource('/events/trains');
+var sse = new EventSource('/events/topic1');
 sse.onmessage = function(e) {
     console.log(JSON.parse(e.data));
 };
