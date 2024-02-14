@@ -7,7 +7,7 @@
     <p>Home page content goes here.</p>
     <script>
         // create a sse client that console logs the message
-        var sse = new EventSource('/events/trains');
+        var sse = new EventSource('/events/topic1');
         sse.onmessage = function(e) {
             console.log(JSON.parse(e.data));
         };
