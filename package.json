@@ -1,10 +1,11 @@
 {
-  "name": "sse",
-  "version": "1.0.0",
-  "description": "Simple SSE-client in node.js",
+  "name": "super-simple-sse",
+  "version": "0.0.2",
+  "description": "Simple SSE-server with express.js",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node test.js"
   },
   "repository": {
     "type": "git",

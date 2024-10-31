@@ -5,11 +5,12 @@ This is a simple SSE-server in node.js. The server can handle subscribers to mul
 To use the server in your code:
 ```
 // include the file:
-const sse = require('./sse');
+const {SseServer} = require('super-simple-sse');
+const sseServer = new SseServer();
 
 // example, sending events to topic "topic1" every second:
 setInterval(() => {
-  sse.internalSendEvent({message: 'Hello from topic1!'}, 'topic1');
+  sseServer.internalSendEvent({message: 'Hello from topic1!'}, 'topic1');
 }, 1000);
 ```
 Sending events require two params:
