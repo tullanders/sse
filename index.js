@@ -2,7 +2,9 @@ const uuid = require('uuid');
 class SseServer {
     #clients = [];
     constructor() {
+
         this.events = this.events.bind(this);
+        this.externalSendEvent = this.externalSendEvent.bind(this);
 
     }
     internalSendEvent(data, topic) {
@@ -22,6 +24,7 @@ class SseServer {
         }
         catch (err) {
             response.send({ 'status': 'error', 'error': err });
+            console.error(err);
         }
     }   
 

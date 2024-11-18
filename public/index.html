@@ -4,8 +4,24 @@
 </head>
 <body>
     <h1>Home</h1>
+    <textarea id="message" placeholder="Enter message"></textarea>
+    <button onclick="sendMessage()">Send</button>
     <p>Home page content goes here.</p>
     <script>
+        function sendMessage() {
+            var message = document.getElementById('message').value;
+            fetch('/sendevent/external', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify({ message: message })
+            })
+            .catch(error => {
+                console.error('Error:', error);
+            });
+        }
+
         // create a sse client that console logs the message
         var sse1 = new EventSource('/events/topic1');
         sse1.onmessage = function(e) {
@@ -14,6 +30,11 @@
 
         var sse2 = new EventSource('/events/topic2');
         sse2.onmessage = function(e) {
+            console.log(JSON.parse(e.data));
+        };
+
+        var sse3 = new EventSource('/events/external');
+        sse3.onmessage = function(e) {
             console.log(JSON.parse(e.data));
         };
 
