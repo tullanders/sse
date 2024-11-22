@@ -13,6 +13,11 @@ app.use(express.json());
 app.use(express.static('public'))
 app.get('/events/:topic', sse.events);
 app.post('/sendevent/:topic', sse.externalSendEvent);
+app.post('/test/:topic', (req, res) => {
+  console.log('Got request:', req.body);
+  const result = {message: 'Hello from test!'};
+  res.send(result);
+});
 app.get('/', (req, res) => {
     res.text('Hello World');
 });
